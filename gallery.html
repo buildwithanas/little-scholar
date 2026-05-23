@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | Little Scholar Islamic School</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .gallery-item-inner { transition: transform 0.4s; }
+    .gallery-item-bg-1 { background: linear-gradient(135deg,#3b1f0e,#6b3a1f); }
+    .gallery-item-bg-2 { background: linear-gradient(135deg,#c9972c,#e8c56a); }
+    .gallery-item-bg-3 { background: linear-gradient(135deg,#6b3a1f,#a0613a); }
+    .gallery-item-bg-4 { background: linear-gradient(135deg,#1a0e06,#3b1f0e); }
+    .gallery-item-bg-5 { background: linear-gradient(135deg,#a0613a,#c9972c); }
+    .gallery-item-bg-6 { background: linear-gradient(135deg,#3b1f0e,#a0613a); }
+    .gallery-item-bg-7 { background: linear-gradient(135deg,#c9972c,#6b3a1f); }
+    .gallery-item-bg-8 { background: linear-gradient(135deg,#6b3a1f,#1a0e06); }
+    .gallery-item-bg-9 { background: linear-gradient(135deg,#e8c56a,#c9972c); }
+    .tab-btn { padding:10px 24px;border:2px solid var(--gold-pale);border-radius:30px;background:transparent;cursor:pointer;font-family:'Lato',sans-serif;font-size:0.85rem;font-weight:700;color:var(--brown-mid);letter-spacing:0.06em;text-transform:uppercase;transition:0.2s; }
+    .tab-btn.active, .tab-btn:hover { background:var(--brown-mid);color:var(--white);border-color:var(--brown-mid); }
+    .gallery-section { display:none; }
+    .gallery-section.active { display:block; }
+    .lightbox { display:none;position:fixed;inset:0;background:rgba(26,14,6,0.95);z-index:9000;align-items:center;justify-content:center;flex-direction:column; }
+    .lightbox.open { display:flex; }
+    .lightbox-close { position:absolute;top:24px;right:32px;font-size:2rem;color:var(--gold-light);cursor:pointer;border:none;background:transparent;line-height:1; }
+    .lightbox-content { text-align:center;padding:20px; }
+    .lightbox-icon { font-size:8rem;margin-bottom:20px; }
+    .lightbox-caption { color:var(--gold-light);font-family:'Playfair Display',serif;font-size:1.2rem; }
+    .lightbox-sub { color:rgba(245,232,192,0.6);font-size:0.88rem;margin-top:6px; }
+  </style>
+</head>
+<body>
+
+<div class="topbar"><span>📞 +234 8028445174</span><span>✉️ littlescholarofficial2005@gmail.com</span><span>📍 Ogun State, Nigeria</span></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+  <img src="logo.png.jpeg" alt="Little Scholar Logo">
+</div> 
+      <div class="nav-logo-text"><strong>Little Scholar</strong><span>Islamic School</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="admissions.html">Admissions</a></li>
+      <li><a href="academics.html">Academics</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="result.html">Results</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-content">
+    <h1>Our Gallery</h1>
+    <p>Moments of learning, faith, and achievement</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span style="color:var(--gold-light);">Gallery</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <!-- TABS -->
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;justify-content:center;">
+      <button class="tab-btn active" onclick="showTab('all',this)">All Photos</button>
+      <button class="tab-btn" onclick="showTab('events',this)">Events</button>
+      <button class="tab-btn" onclick="showTab('academics',this)">Academics</button>
+      <button class="tab-btn" onclick="showTab('sports',this)">Sports</button>
+      <button class="tab-btn" onclick="showTab('islamic',this)">Islamic Activities</button>
+    </div>
+
+    <!-- ALL GALLERY -->
+    <div id="all" class="gallery-section active">
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLight('🎓','Prize Giving Day 2024','Annual award ceremony – over 60 students received honours')">
+          <div class="gallery-item-inner gallery-item-bg-1"><span>🎓</span></div>
+          <div class="gallery-caption"><strong>Prize Giving Day 2024</strong><br>Annual award ceremony</div>
+        </div>
+        <div class="gallery-item" onclick="openLight('📖','Qur\'an Competition Finals','Students compete in Tajweed and memorisation')">
+          <div class="gallery-item-inner gallery-item-bg-2"><span>📖</span></div>
+          <div class="gallery-caption"><strong>Qur'an Competition Finals</strong><br>Tajweed championship</div>
+        </div>
+        <div class="gallery-item" onclick="openLight('⚽','Inter-House Sports Day','Football, athletics, and team competitions')">
+          <div class="gallery-item-inner gallery-item-bg-3"><span>⚽</span></div>
+          <div class="gallery-caption"><strong>Inter-House Sports Day</strong><br>Football &amp; athletics</div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🔬','Science Fair 2024','Students present innovative science projects')">
+          <div class="gallery-item-inner gallery-item-bg-4"><span>🔬</span></div>
+          <div class="gallery-caption"><strong>Science Fair 2024</strong><br>Student science projects</div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🎨','Art Exhibition','Islamic calligraphy and geometric art display')">
+          <div class="gallery-item-inner gallery-item-bg-5"><span>🎨</span></div>
+          <div class="gallery-caption"><strong>Art Exhibition</strong><br>Calligraphy showcase</div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🤲','Maulid Celebration','Annual commemoration of the Prophet\'s (SAW) birthday')">
+          <div class="gallery-item-inner gallery-item-bg-6"><span>🤲</span></div>
+          <div class="gallery-caption"><strong>Maulid Celebration</strong><br>Prophet's birthday event</div>
+        </div>
+        <div class="gallery-item" onclick="openLight('💻','ICT Training Lab','Students learning coding and computer skills')">
+          <div class="gallery-item-inner gallery-item-bg-7"><span>💻</span></div>
+          <div class="gallery-caption"><strong>ICT Training Lab</strong><br>Coding sessions</div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🏆','Debate Competition','Students competing in state-level public speaking')">
+          <div class="gallery-item-inner gallery-item-bg-8"><span>🏆</span></div>
+          <div class="gallery-caption"><strong>Debate Competition</strong><br>Public speaking finals</div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🌙','Ramadan Programme','Special Iftar and Tarawih sessions during Ramadan')">
+          <div class="gallery-item-inner gallery-item-bg-9"><span>🌙</span></div>
+          <div class="gallery-caption"><strong>Ramadan Programme</strong><br>Iftar &amp; night prayers</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVENTS -->
+    <div id="events" class="gallery-section">
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLight('🎓','Prize Giving Day 2024','Annual award ceremony – over 60 students received honours')">
+          <div class="gallery-item-inner gallery-item-bg-1"><span>🎓</span></div>
+          <div class="gallery-caption"><strong>Prize Giving Day 2024</strong></div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🎉','School Founders Day','18th anniversary celebration of the school')">
+          <div class="gallery-item-inner gallery-item-bg-5"><span>🎉</span></div>
+          <div class="gallery-caption"><strong>Founders Day 2023</strong></div>
+        </div>
+        <div class="gallery-item" onclick="openLight('👨‍👩‍👧','Parents Day 2024','Annual meeting and celebration with parents')">
+          <div class="gallery-item-inner gallery-item-bg-3"><span>👨‍👩‍👧</span></div>
+          <div class="gallery-caption"><strong>Parents Day 2024</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACADEMICS -->
+    <div id="academics" class="gallery-section">
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLight('🔬','Science Fair 2024','Students present innovative science projects')">
+          <div class="gallery-item-inner gallery-item-bg-4"><span>🔬</span></div>
+          <div class="gallery-caption"><strong>Science Fair 2024</strong></div>
+        </div>
+        <div class="gallery-item" onclick="openLight('💻','ICT Training Lab','Students learning coding and computer skills')">
+          <div class="gallery-item-inner gallery-item-bg-7"><span>💻</span></div>
+          <div class="gallery-caption"><strong>ICT Lab Sessions</strong></div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🏆','Debate Competition','State-level public speaking championships')">
+          <div class="gallery-item-inner gallery-item-bg-8"><span>🏆</span></div>
+          <div class="gallery-caption"><strong>Debate Championship</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPORTS -->
+    <div id="sports" class="gallery-section">
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLight('⚽','Inter-House Sports Day','Football, athletics, and team competitions')">
+          <div class="gallery-item-inner gallery-item-bg-3"><span>⚽</span></div>
+          <div class="gallery-caption"><strong>Inter-House Sports Day</strong></div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🏐','Volleyball Finals','Boys and girls volleyball inter-class finals')">
+          <div class="gallery-item-inner gallery-item-bg-6"><span>🏐</span></div>
+          <div class="gallery-caption"><strong>Volleyball Tournament</strong></div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🏃','Athletics Day','100m, 200m, relay races and long jump')">
+          <div class="gallery-item-inner gallery-item-bg-2"><span>🏃</span></div>
+          <div class="gallery-caption"><strong>Athletics Day</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ISLAMIC -->
+    <div id="islamic" class="gallery-section">
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLight('📖','Qur\'an Competition Finals','Students compete in Tajweed and memorisation')">
+          <div class="gallery-item-inner gallery-item-bg-2"><span>📖</span></div>
+          <div class="gallery-caption"><strong>Qur'an Competition</strong></div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🤲','Maulid Celebration','Annual commemoration of the Prophet\'s (SAW) birthday')">
+          <div class="gallery-item-inner gallery-item-bg-6"><span>🤲</span></div>
+          <div class="gallery-caption"><strong>Maulid Celebration</strong></div>
+        </div>
+        <div class="gallery-item" onclick="openLight('🌙','Ramadan Programme','Special Iftar and Tarawih sessions during Ramadan')">
+          <div class="gallery-item-inner gallery-item-bg-9"><span>🌙</span></div>
+          <div class="gallery-caption"><strong>Ramadan Programme</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox-content">
+    <div class="lightbox-icon" id="lb-icon">📖</div>
+    <div class="lightbox-caption" id="lb-caption">Caption</div>
+    <div class="lightbox-sub" id="lb-sub">Description</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+<div class="footer-brand">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+
+    <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--gold);flex-shrink:0;">
+      <img src="logo.png.jpeg" alt="Logo"
+      style="width:100%;height:100%;object-fit:cover;">
+    </div>
+
+    <div>
+      <div style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.1rem;">Little Scholar</div>
+      <div style="font-size:0.72rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;">Islamic School</div>
+    </div>
+
+  </div>
+
+  <p>Nurturing minds rooted in faith and primed for excellence since 2005. Ogun State, Nigeria.</p>
+</div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="academics.html">Academics</a></li><li><a href="result.html">Check Results</a></li></ul></div>
+    <div class="footer-col"><h4>Programmes</h4><ul><li><a href="academics.html">Nursery &amp; Primary</a></li><li><a href="academics.html">Junior Secondary</a></li><li><a href="academics.html">Qur'anic Studies</a></li><li><a href="academics.html">Arabic Language</a></li><li><a href="academics.html">Extracurriculars</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-contact-item"><span>📍</span><span>Onafuwa, Ogere Remo, Ogun State, Nigeria</span></div><div class="footer-contact-item"><span>📞</span><span>+234 8038445174</span></div><div class="footer-contact-item"><span>✉️</span><span>littlescholarofficial2005@gmail.com</span></div><div class="footer-contact-item"><span>🕐</span><span>Mon–Fri: 7:30 AM – 3:30 PM</span></div></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Little Scholar Islamic School. All rights reserved.</span><span>Designed with ❤️ for education</span></div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.gallery-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+  function openLight(icon, caption, sub) {
+    document.getElementById('lb-icon').textContent = icon;
+    document.getElementById('lb-caption').textContent = caption;
+    document.getElementById('lb-sub').textContent = sub;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+</script>
+</body>
+</html>
